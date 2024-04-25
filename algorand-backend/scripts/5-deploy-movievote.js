@@ -29,11 +29,11 @@ async function compileProgram(client, TealSource) {
     const globalInts = 4;
     const globalBytes = 0;
 
-    let approvalProgramfile = await open(
-      "./contracts/artifacts/counter_approval.teal"
+    const approvalProgramfile = await open(
+      "./contracts/artifacts/songvote_approval.teal"
     );
-    let clearProgramfile = await open(
-      "./contracts/artifacts/counter_clear.teal"
+    const clearProgramfile = await open(
+      "./contracts/artifacts/songvote_clear.teal"
     );
 
     const approvalProgram = await approvalProgramfile.readFile();

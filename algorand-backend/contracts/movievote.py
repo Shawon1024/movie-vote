@@ -6,7 +6,10 @@ import os
 
 def approval_program():
     handle_creation = Seq(
-        App.globalPut(Bytes("Count"), Int(0)),
+        App.globalPut(Bytes("Count1"), Int(0)),
+        App.globalPut(Bytes("Count2"), Int(1)),
+        App.globalPut(Bytes("Count3"), Int(2)),
+        App.globalPut(Bytes("Count4"), Int(3)),
         Return(Int(1))
     )
     # handle creation function above
@@ -21,11 +24,27 @@ def approval_program():
     # delete app above
 
     scratchCount = ScratchVar(TealType.uint64)
-    add = Seq([
-        scratchCount.store(App.globalGet(Bytes("Count"))),
-        App.globalPut(Bytes("Count"), scratchCount.load() + Int(1)),
+
+    addC1 = Seq(
+        scratchCount.store(App.globalGet(Bytes("Count1"))),
+        App.globalPut(Bytes("Count1"), scratchCount.load() + Int(1)),
         Return(Int(1))
-    ])
+    )
+    addC2 = Seq(
+        scratchCount.store(App.globalGet(Bytes("Count2"))),
+        App.globalPut(Bytes("Count2"), scratchCount.load() + Int(1)),
+        Return(Int(1))
+    )
+    addC3 = Seq(
+        scratchCount.store(App.globalGet(Bytes("Count3"))),
+        App.globalPut(Bytes("Count3"), scratchCount.load() + Int(1)),
+        Return(Int(1))
+    )
+    addC4 = Seq(
+        scratchCount.store(App.globalGet(Bytes("Count4"))),
+        App.globalPut(Bytes("Count4"), scratchCount.load() + Int(1)),
+        Return(Int(1))
+    )
 
     deduct = Seq([
         scratchCount.store(App.globalGet(Bytes("Count"))),
@@ -39,8 +58,10 @@ def approval_program():
         # First, fails immediately if this transaction is grouped with others
         Assert(Global.group_size() == Int(1)),
         Cond(
-            [Txn.application_args[0] == Bytes("Add"), add],
-            [Txn.application_args[0] == Bytes("Deduct"), deduct]
+            [Txn.application_args[0] == Bytes("AddC1"), addC1],
+            [Txn.application_args[0] == Bytes("AddC2"), addC2],
+            [Txn.application_args[0] == Bytes("AddC3"), addC2],
+            [Txn.application_args[0] == Bytes("AddC4"), addC2]
         )
     )
 # conditional below
@@ -61,9 +82,11 @@ def clear_state_program():
 
 
 if __name__ == "__main__":
+
     path = "./contracts/artifacts"
-    with open(os.path.join(path, "counter_approval.teal"), 'w') as f:
+
+    with open(os.path.join(path, "songvote_approval.teal"), 'w') as f:
         f.write(approval_program())
 
-    with open(os.path.join(path, "counter_clear.teal"), 'w') as f:
+    with open(os.path.join(path, "songvote_clear.teal"), 'w') as f:
         f.write(clear_state_program())
