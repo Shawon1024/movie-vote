@@ -76,7 +76,7 @@ function App() {
     // time to sign . . . which we have to do with walletconnect
     const SignerTransaction = [{ txn }];
 
-    setVoteState1("Sign txn in wallet");
+    setVoteState1("Sign in wallet");
 
     const result = await peraWallet.signTransaction([SignerTransaction]);
 
@@ -84,7 +84,7 @@ function App() {
     const decodedResult = result.map((element: any) => {
       return element ? new Uint8Array(Buffer.from(element, "base64")) : null;
     });
-    setVoteState1("Processing. . .");
+    setVoteState1("Wait ...");
     await algodClient.sendRawTransaction(decodedResult as any).do();
     await algosdk.waitForConfirmation(algodClient, txId, 2);
     console.log("Adding to Count1");
@@ -123,13 +123,13 @@ function App() {
     // time to sign . . . which we have to do with walletconnect
     const SignerTransaction = [{ txn }];
 
-    setVoteState2("Sign txn in wallet");
+    setVoteState2("Sign in wallet");
     const result = await peraWallet.signTransaction([SignerTransaction]);
     const decodedResult = result.map((element: any) => {
       return element ? new Uint8Array(Buffer.from(element, "base64")) : null;
     });
     // send and await
-    setVoteState2("Processing. . .");
+    setVoteState2("Wait ...");
     await algodClient.sendRawTransaction(decodedResult as any).do();
     await algosdk.waitForConfirmation(algodClient, txId, 2);
     let transactionResponse = await algodClient
@@ -167,13 +167,13 @@ function App() {
     // time to sign . . . which we have to do with walletconnect
     const SignerTransaction = [{ txn }];
 
-    setVoteState3("Sign txn in wallet");
+    setVoteState3("Sign in wallet");
     const result = await peraWallet.signTransaction([SignerTransaction]);
     const decodedResult = result.map((element: any) => {
       return element ? new Uint8Array(Buffer.from(element, "base64")) : null;
     });
     // send and await
-    setVoteState3("Processing. . .");
+    setVoteState3("Wait ...");
     await algodClient.sendRawTransaction(decodedResult as any).do();
     await algosdk.waitForConfirmation(algodClient, txId, 2);
     let transactionResponse = await algodClient
@@ -211,13 +211,13 @@ function App() {
     // time to sign . . . which we have to do with walletconnect
     const SignerTransaction = [{ txn }];
 
-    setVoteState4("Sign txn in wallet");
+    setVoteState4("Sign in wallet");
     const result = await peraWallet.signTransaction([SignerTransaction]);
     const decodedResult = result.map((element: any) => {
       return element ? new Uint8Array(Buffer.from(element, "base64")) : null;
     });
     // send and await
-    setVoteState4("Processing. . .");
+    setVoteState4("Wait ...");
     await algodClient.sendRawTransaction(decodedResult as any).do();
     await algosdk.waitForConfirmation(algodClient, txId, 2);
     let transactionResponse = await algodClient
