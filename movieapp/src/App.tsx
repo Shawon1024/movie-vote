@@ -23,7 +23,7 @@ function App() {
     shouldShowSignTxnToast: true,
   });
 
-  const app_address: number = 655577952;
+  const app_address: number = 655590223;
 
   const baseServer = "https://testnet-api.algonode.cloud";
 
@@ -86,7 +86,7 @@ function App() {
     });
     setVoteState1("Wait ...");
     await algodClient.sendRawTransaction(decodedResult as any).do();
-    await algosdk.waitForConfirmation(algodClient, txId, 2);
+    await algosdk.waitForConfirmation(algodClient, txId, 4);
     console.log("Adding to Count1");
     let transactionResponse = await algodClient
       .pendingTransactionInformation(txId)
@@ -131,7 +131,7 @@ function App() {
     // send and await
     setVoteState2("Wait ...");
     await algodClient.sendRawTransaction(decodedResult as any).do();
-    await algosdk.waitForConfirmation(algodClient, txId, 2);
+    await algosdk.waitForConfirmation(algodClient, txId, 4);
     let transactionResponse = await algodClient
       .pendingTransactionInformation(txId)
       .do();
@@ -175,7 +175,7 @@ function App() {
     // send and await
     setVoteState3("Wait ...");
     await algodClient.sendRawTransaction(decodedResult as any).do();
-    await algosdk.waitForConfirmation(algodClient, txId, 2);
+    await algosdk.waitForConfirmation(algodClient, txId, 4);
     let transactionResponse = await algodClient
       .pendingTransactionInformation(txId)
       .do();
@@ -219,7 +219,7 @@ function App() {
     // send and await
     setVoteState4("Wait ...");
     await algodClient.sendRawTransaction(decodedResult as any).do();
-    await algosdk.waitForConfirmation(algodClient, txId, 2);
+    await algosdk.waitForConfirmation(algodClient, txId, 4);
     let transactionResponse = await algodClient
       .pendingTransactionInformation(txId)
       .do();

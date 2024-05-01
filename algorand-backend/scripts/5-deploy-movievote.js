@@ -71,7 +71,7 @@ async function compileProgram(client, TealSource) {
     await algodClient.sendRawTransaction(signedTxn).do();
 
     // Wait for confirmation
-    await algosdk.waitForConfirmation(algodClient, txId, 2);
+    await algosdk.waitForConfirmation(algodClient, txId, 4);
 
     // print the app-id
     let transactionResponse = await algodClient
