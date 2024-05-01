@@ -257,10 +257,10 @@ function App() {
     setCount1(globalState[0]["value"]["uint"]);
     console.log("Count2: ", globalState[1]["value"]["uint"]);
     setCount2(globalState[1]["value"]["uint"]);
-    console.log("Count3: ", globalState[1]["value"]["uint"]);
-    setCount3(globalState[1]["value"]["uint"]);
-    console.log("Count4: ", globalState[1]["value"]["uint"]);
-    setCount4(globalState[1]["value"]["uint"]);
+    console.log("Count3: ", globalState[2]["value"]["uint"]);
+    setCount3(globalState[2]["value"]["uint"]);
+    console.log("Count4: ", globalState[3]["value"]["uint"]);
+    setCount4(globalState[3]["value"]["uint"]);
   };
 
   useEffect(() => {
