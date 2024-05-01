@@ -8,7 +8,7 @@ const baseServer = "https://testnet-api.algonode.cloud";
 const algodClient = new algosdk.Algodv2("", baseServer, "");
 
 let myaccount = algosdk.mnemonicToSecretKey(
-  "salmon anger fire surge lift noodle music canal swing divorce stone confirm train manual hunt topple hat crane heart easily current shoe laundry ability home"
+  "artefact office enhance crack wage elbow rug resemble sword pact surprise mother media have feature oyster rude ridge produce theory puzzle undo task ability into"
 );
 let sender = myaccount.addr;
 

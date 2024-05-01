@@ -11,9 +11,9 @@ async function readGlobalState(client, index) {
   }
 }
 // Application ID
-let index = 650011867;
+let index = 655226967;
 //Make sure you change it to yours.
-let myaccount = algosdk.mnemonicToSecretKey("salmon anger fire surge lift noodle music canal swing divorce stone confirm train manual hunt topple hat crane heart easily current shoe laundry ability home");
+let myaccount = algosdk.mnemonicToSecretKey("artefact office enhance crack wage elbow rug resemble sword pact surprise mother media have feature oyster rude ridge produce theory puzzle undo task ability into");
 let sender = myaccount.addr;
 
 const baseServer = "https://testnet-api.algonode.cloud";
