@@ -30,10 +30,10 @@ async function compileProgram(client, TealSource) {
     const globalBytes = 0;
 
     const approvalProgramfile = await open(
-      "./contracts/artifacts/songvote_approval.teal"
+      "./contracts/artifacts/movievote_approval.teal"
     );
     const clearProgramfile = await open(
-      "./contracts/artifacts/songvote_clear.teal"
+      "./contracts/artifacts/movievote_clear.teal"
     );
 
     const approvalProgram = await approvalProgramfile.readFile();
