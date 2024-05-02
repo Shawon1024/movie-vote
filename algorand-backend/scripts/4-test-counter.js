@@ -11,7 +11,7 @@ async function readGlobalState(client, index) {
   }
 }
 // Application ID
-let index = 655226967;
+let index = 655650057;
 //Make sure you change it to yours.
 let myaccount = algosdk.mnemonicToSecretKey("artefact office enhance crack wage elbow rug resemble sword pact surprise mother media have feature oyster rude ridge produce theory puzzle undo task ability into");
 let sender = myaccount.addr;
@@ -42,7 +42,7 @@ appArgs2.push(new Uint8Array(Buffer.from(deduct)));
     let signedTxn = txn.signTxn(myaccount.sk);
     console.log("Signed transaction with txID: %s", txId);
     await algodClient.sendRawTransaction(signedTxn).do();
-    await algosdk.waitForConfirmation(algodClient, txId, 2);
+    await algosdk.waitForConfirmation(algodClient, txId, 4);
 
     // display results
     let transactionResponse = await algodClient
@@ -64,7 +64,7 @@ appArgs2.push(new Uint8Array(Buffer.from(deduct)));
     let signedTxn2 = txn2.signTxn(myaccount.sk);
     console.log("Signed transaction with txID: %s", txId2);
     await algodClient.sendRawTransaction(signedTxn2).do();
-    await algosdk.waitForConfirmation(algodClient, txId2, 2);
+    await algosdk.waitForConfirmation(algodClient, txId2, 4);
     // display results
     let transactionResponse2 = await algodClient
       .pendingTransactionInformation(txId2)
